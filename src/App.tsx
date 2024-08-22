@@ -170,8 +170,7 @@ function App() {
           <Button
             disabled={
               isLoading ||
-              isError ||
-              (!!property && !(property as PropertyDetails).onSale)
+              isError
             }
             onClick={handleBuy}>
             Buy
