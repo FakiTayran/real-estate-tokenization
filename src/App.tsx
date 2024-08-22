@@ -31,13 +31,13 @@ type PropertyDetails = {
   onLease: boolean;
   sellPrice: bigint;
   leasePrice: bigint;
-  leaseStartTime: number;
-  leaseEndTime: number;
-  leaseDeadline: number;
   agentCommission: bigint;
   agentAddress: string;
   owner: string;
+  sterlinPrice: string;
+  squareMeters: string;
 };
+
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
@@ -53,9 +53,9 @@ function App() {
     string | undefined
   >(undefined);
   const [success, SetSuccess] = useState<boolean>(false);
-  const propertyId = query.get("propertyId") || "1";
-  const agentId = query.get("agentId") || "1";
-  const tokenId = 1;
+  const propertyId = query.get("propertyid") || "1";
+  const estateAgentId =
+    query.get("estateagentid") || "64ed85e7-0283-4c5d-bea1-24aee0fd7c2e";
   const {
     data: property,
     isError,
@@ -64,17 +64,17 @@ function App() {
     config,
     address: PropertyContract.address,
     abi: PropertyContract.abi,
-    functionName: "getApartment",
-    args: [tokenId],
+    functionName: "getProperty",
+    args: [propertyId],
   });
 
   const handleBuy = async () => {
-    if (propertyId && agentId && !!property) {
+    if (propertyId && estateAgentId && !!property) {
       const { request } = await simulateContract(config as any, {
         abi: PropertyContract.abi,
         address: PropertyContract.address,
         functionName: "buy",
-        args: [propertyId, agentId],
+        args: [estateAgentId, propertyId],
         value: (property as PropertyDetails).sellPrice,
       });
       const hash = await writeContract(config, request);
@@ -122,6 +122,8 @@ function App() {
                   <TableCell>On Sale</TableCell>
                   <TableCell>On Lease</TableCell>
                   <TableCell>Sell Price (MATIC)</TableCell>
+                  <TableCell>Sell Price (Sterlin)</TableCell>
+                  <TableCell>Floor Area</TableCell>
                   <TableCell>Current Owner</TableCell>
                 </TableRow>
               </TableHead>
@@ -143,6 +145,15 @@ function App() {
                     {formatEther((property as PropertyDetails).sellPrice)}
                   </TableCell>
                   <TableCell>
+                    {(property as PropertyDetails).sterlinPrice}
+                  </TableCell>
+                  <TableCell>
+                    {`${
+                      (property as PropertyDetails).squareMeters
+                    } Square meters`}
+                  </TableCell>
+
+                  <TableCell>
                     {abbreviateAddress((property as PropertyDetails).owner)}
                   </TableCell>
                 </TableRow>
@@ -152,16 +163,16 @@ function App() {
         )}
       </p>
 
-      {/* <p>Parsel No: 2142</p>
-      <p>Address: 113 gayBritish street, 20812</p>
-      <p>Area: 70 meters square</p>
-      <p>Price: 122k$</p> */}
       <button>See on Maps</button>
 
       <div className="card">
         {isConnected ? (
           <Button
-            disabled={isLoading || isError}
+            disabled={
+              isLoading ||
+              isError ||
+              (!!property && !(property as PropertyDetails).onSale)
+            }
             onClick={handleBuy}>
             Buy
           </Button>

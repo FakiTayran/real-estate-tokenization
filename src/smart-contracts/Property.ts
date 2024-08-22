@@ -3,8 +3,13 @@ export type PropertyContract = {
     abi: any;
 };
 export const PropertyContract: PropertyContract = {
-    address: `0x${"eD4F46A825c9d74CD1f6D2478FfBa66670f52d91"}`,
+    address: `0x${"F83a0306A284A9AF72464D58b63501a55c846873"}`,
     abi: [
+        {
+            inputs: [],
+            stateMutability: 'nonpayable',
+            type: 'constructor',
+        },
         {
             inputs: [
                 {
@@ -227,196 +232,21 @@ export const PropertyContract: PropertyContract = {
         {
             inputs: [
                 {
-                    internalType: 'address',
-                    name: 'to',
-                    type: 'address',
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
+                    internalType: 'string',
+                    name: '',
+                    type: 'string',
                 },
             ],
-            name: 'approve',
-            outputs: [],
-            stateMutability: 'nonpayable',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'uint256',
-                    name: 'agentId',
-                    type: 'uint256',
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
-                },
-            ],
-            name: 'buy',
-            outputs: [],
-            stateMutability: 'payable',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
-                },
-                {
-                    internalType: 'bool',
-                    name: 'onSale',
-                    type: 'bool',
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'newSellPrice',
-                    type: 'uint256',
-                },
-            ],
-            name: 'changeSaleStatus',
-            outputs: [],
-            stateMutability: 'nonpayable',
-            type: 'function',
-        },
-        {
-            inputs: [],
-            name: 'renounceOwnership',
-            outputs: [],
-            stateMutability: 'nonpayable',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'leaseDuration',
-                    type: 'uint256',
-                },
-            ],
-            name: 'rent',
-            outputs: [],
-            stateMutability: 'payable',
-            type: 'function',
-        },
-        {
-            inputs: [
+            name: 'agents',
+            outputs: [
                 {
                     internalType: 'address',
-                    name: 'from',
-                    type: 'address',
-                },
-                {
-                    internalType: 'address',
-                    name: 'to',
-                    type: 'address',
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
-                },
-            ],
-            name: 'safeTransferFrom',
-            outputs: [],
-            stateMutability: 'nonpayable',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'address',
-                    name: 'from',
-                    type: 'address',
-                },
-                {
-                    internalType: 'address',
-                    name: 'to',
-                    type: 'address',
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
-                },
-                {
-                    internalType: 'bytes',
-                    name: 'data',
-                    type: 'bytes',
-                },
-            ],
-            name: 'safeTransferFrom',
-            outputs: [],
-            stateMutability: 'nonpayable',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'address',
-                    name: 'operator',
-                    type: 'address',
-                },
-                {
-                    internalType: 'bool',
-                    name: 'approved',
-                    type: 'bool',
-                },
-            ],
-            name: 'setApprovalForAll',
-            outputs: [],
-            stateMutability: 'nonpayable',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'address',
-                    name: 'from',
-                    type: 'address',
-                },
-                {
-                    internalType: 'address',
-                    name: 'to',
-                    type: 'address',
-                },
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
-                },
-            ],
-            name: 'transferFrom',
-            outputs: [],
-            stateMutability: 'nonpayable',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'address',
-                    name: 'newOwner',
+                    name: 'agentAddress',
                     type: 'address',
                 },
             ],
-            name: 'transferOwnership',
-            outputs: [],
-            stateMutability: 'nonpayable',
+            stateMutability: 'view',
             type: 'function',
-        },
-        {
-            inputs: [],
-            stateMutability: 'nonpayable',
-            type: 'constructor',
         },
         {
             inputs: [
@@ -426,12 +256,12 @@ export const PropertyContract: PropertyContract = {
                     type: 'uint256',
                 },
             ],
-            name: 'agents',
+            name: 'apartmentToAgent',
             outputs: [
                 {
-                    internalType: 'address',
-                    name: 'agentAddress',
-                    type: 'address',
+                    internalType: 'uint256',
+                    name: '',
+                    type: 'uint256',
                 },
             ],
             stateMutability: 'view',
@@ -460,11 +290,6 @@ export const PropertyContract: PropertyContract = {
                 {
                     internalType: 'bool',
                     name: 'onSale',
-                    type: 'bool',
-                },
-                {
-                    internalType: 'bool',
-                    name: 'leaseable',
                     type: 'bool',
                 },
                 {
@@ -519,6 +344,16 @@ export const PropertyContract: PropertyContract = {
                     name: 'owner',
                     type: 'address',
                 },
+                {
+                    internalType: 'uint256',
+                    name: 'squareMeters',
+                    type: 'uint256',
+                },
+                {
+                    internalType: 'string',
+                    name: 'sterlinPrice',
+                    type: 'string',
+                },
             ],
             stateMutability: 'view',
             type: 'function',
@@ -526,20 +361,19 @@ export const PropertyContract: PropertyContract = {
         {
             inputs: [
                 {
-                    internalType: 'uint256',
-                    name: '',
-                    type: 'uint256',
+                    internalType: 'address',
+                    name: 'to',
+                    type: 'address',
                 },
-            ],
-            name: 'apartmentToAgent',
-            outputs: [
                 {
                     internalType: 'uint256',
-                    name: '',
+                    name: 'tokenId',
                     type: 'uint256',
                 },
             ],
-            stateMutability: 'view',
+            name: 'approve',
+            outputs: [],
+            stateMutability: 'nonpayable',
             type: 'function',
         },
         {
@@ -564,12 +398,72 @@ export const PropertyContract: PropertyContract = {
         {
             inputs: [
                 {
+                    internalType: 'string',
+                    name: 'agentId',
+                    type: 'string',
+                },
+                {
                     internalType: 'uint256',
                     name: 'tokenId',
                     type: 'uint256',
                 },
             ],
-            name: 'getApartment',
+            name: 'buy',
+            outputs: [],
+            stateMutability: 'payable',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'uint256',
+                    name: 'tokenId',
+                    type: 'uint256',
+                },
+                {
+                    internalType: 'bool',
+                    name: 'onSale',
+                    type: 'bool',
+                },
+                {
+                    internalType: 'uint256',
+                    name: 'newSellPrice',
+                    type: 'uint256',
+                },
+            ],
+            name: 'changeSaleStatus',
+            outputs: [],
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'uint256',
+                    name: 'tokenId',
+                    type: 'uint256',
+                },
+            ],
+            name: 'getApproved',
+            outputs: [
+                {
+                    internalType: 'address',
+                    name: '',
+                    type: 'address',
+                },
+            ],
+            stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'uint256',
+                    name: 'tokenId',
+                    type: 'uint256',
+                },
+            ],
+            name: 'getProperty',
             outputs: [
                 {
                     components: [
@@ -590,11 +484,6 @@ export const PropertyContract: PropertyContract = {
                         },
                         {
                             internalType: 'bool',
-                            name: 'leaseable',
-                            type: 'bool',
-                        },
-                        {
-                            internalType: 'bool',
                             name: 'onLease',
                             type: 'bool',
                         },
@@ -606,21 +495,6 @@ export const PropertyContract: PropertyContract = {
                         {
                             internalType: 'uint256',
                             name: 'leasePrice',
-                            type: 'uint256',
-                        },
-                        {
-                            internalType: 'uint256',
-                            name: 'leaseStartTime',
-                            type: 'uint256',
-                        },
-                        {
-                            internalType: 'uint256',
-                            name: 'leaseEndTime',
-                            type: 'uint256',
-                        },
-                        {
-                            internalType: 'uint256',
-                            name: 'leaseDeadline',
                             type: 'uint256',
                         },
                         {
@@ -638,29 +512,20 @@ export const PropertyContract: PropertyContract = {
                             name: 'owner',
                             type: 'address',
                         },
+                        {
+                            internalType: 'uint256',
+                            name: 'squareMeters',
+                            type: 'uint256',
+                        },
+                        {
+                            internalType: 'string',
+                            name: 'sterlinPrice',
+                            type: 'string',
+                        },
                     ],
-                    internalType: 'struct Neighborhood.ApartmentInfo',
+                    internalType: 'struct Neighborhood.PropertyInfo',
                     name: 'info',
                     type: 'tuple',
-                },
-            ],
-            stateMutability: 'view',
-            type: 'function',
-        },
-        {
-            inputs: [
-                {
-                    internalType: 'uint256',
-                    name: 'tokenId',
-                    type: 'uint256',
-                },
-            ],
-            name: 'getApproved',
-            outputs: [
-                {
-                    internalType: 'address',
-                    name: '',
-                    type: 'address',
                 },
             ],
             stateMutability: 'view',
@@ -736,6 +601,82 @@ export const PropertyContract: PropertyContract = {
             type: 'function',
         },
         {
+            inputs: [],
+            name: 'renounceOwnership',
+            outputs: [],
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'address',
+                    name: 'from',
+                    type: 'address',
+                },
+                {
+                    internalType: 'address',
+                    name: 'to',
+                    type: 'address',
+                },
+                {
+                    internalType: 'uint256',
+                    name: 'tokenId',
+                    type: 'uint256',
+                },
+            ],
+            name: 'safeTransferFrom',
+            outputs: [],
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'address',
+                    name: 'from',
+                    type: 'address',
+                },
+                {
+                    internalType: 'address',
+                    name: 'to',
+                    type: 'address',
+                },
+                {
+                    internalType: 'uint256',
+                    name: 'tokenId',
+                    type: 'uint256',
+                },
+                {
+                    internalType: 'bytes',
+                    name: 'data',
+                    type: 'bytes',
+                },
+            ],
+            name: 'safeTransferFrom',
+            outputs: [],
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'address',
+                    name: 'operator',
+                    type: 'address',
+                },
+                {
+                    internalType: 'bool',
+                    name: 'approved',
+                    type: 'bool',
+                },
+            ],
+            name: 'setApprovalForAll',
+            outputs: [],
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+        {
             inputs: [
                 {
                     internalType: 'bytes4',
@@ -784,6 +725,42 @@ export const PropertyContract: PropertyContract = {
                 },
             ],
             stateMutability: 'view',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'address',
+                    name: 'from',
+                    type: 'address',
+                },
+                {
+                    internalType: 'address',
+                    name: 'to',
+                    type: 'address',
+                },
+                {
+                    internalType: 'uint256',
+                    name: 'tokenId',
+                    type: 'uint256',
+                },
+            ],
+            name: 'transferFrom',
+            outputs: [],
+            stateMutability: 'nonpayable',
+            type: 'function',
+        },
+        {
+            inputs: [
+                {
+                    internalType: 'address',
+                    name: 'newOwner',
+                    type: 'address',
+                },
+            ],
+            name: 'transferOwnership',
+            outputs: [],
+            stateMutability: 'nonpayable',
             type: 'function',
         },
     ]
