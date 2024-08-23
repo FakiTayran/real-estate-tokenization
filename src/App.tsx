@@ -98,7 +98,7 @@ function App() {
 
         {!!property && (
           <Table>
-            <TableCaption className="font-light text-xs">A list of available apartments. More data will be imported.</TableCaption>
+            <TableCaption className="font-light text-xs"></TableCaption>
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px]">Title Number</TableHead>
